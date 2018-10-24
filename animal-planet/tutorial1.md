@@ -66,6 +66,6 @@ h1 {
 }
 ```
 然後回到`http://localhost:4200/`，我們應該可以看到畫面變成
-<img src='../img/tutorial1_1.png' height='246px'>
+<img src='../img/tutorial1_1.png' height='246px' >
 
 
