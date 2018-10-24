@@ -65,8 +65,7 @@ export class AnimalsComponent implements OnInit {
 <router-outlet></router-outlet>
 ```
 登勒～我們就會看到畫面變成
-<img src='../img/tutorial2_1.png' height='246px' align='left'>
-
+<img src='../img/tutorial2_1.png' height='246px' >
 
 # 建立動物類別
 動物有很多種啊!!所以我們先在`src/app/`底下建立一個動物類別`animal.ts`
