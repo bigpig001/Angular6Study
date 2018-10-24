@@ -2,11 +2,11 @@
 首先我們先建立一個新的app來做練習<br/>
 
 ```sh
-ng new animal_planet
+$ ng new animal_planet
 ? Would you like to add Angular routing? Yes
 ? Which stylesheet format would you like to use? CSS
-cd animal_planet
-ng serve --open
+$ cd animal_planet
+$ ng serve --open
 ```
 `ng serve --open` 跟 `npm start`一樣都會開啟angular server
 
