@@ -1,6 +1,14 @@
-<div class="animals">
-  <h2> {{ animal.name | uppercase}}'s Details</h2>
-  <div><span>id: </span>{{animal.id}}</div>
-  <div><span>name: </span>{{animal.name}}</div>
-  <div><span>type: </span>{{animal.type }}</div>
+<h2> Animals</h2>
+<ul class="animals">
+  <li *ngFor="let animal of animals"
+      [class.selected]="animal === selectedAnimal"
+      (click)="onSelect(animal)">
+    <span >{{animal.id}}</span> {{animal.name | uppercase}}
+  </li>
+</ul>
+<div *ngIf="selectedAnimal">
+  <h2> {{ selectedAnimal.name | uppercase}}'s Details</h2>
+  <div><span>id: </span>{{selectedAnimal.id}}</div>
+  <div><span>name: </span>{{selectedAnimal.name}}</div>
+  <div><span>type: </span>{{selectedAnimal.type }}</div>
 </div>

@@ -104,6 +104,7 @@ export class AnimalsComponent implements OnInit {
 ```
 
 因為我們已經將animal這個變數改成Animal的類別，所以`animals.component.html` template的部分也要稍作修改。
+`{{ animal.name| uppercase}}` | 後是代表格式，我們要他這格顯示大寫。
 
 ```html
 <div class="animals">
@@ -113,7 +114,79 @@ export class AnimalsComponent implements OnInit {
   <div><span>type: </span>{{animal.type}}</div>
 </div>
 ```
+
 這樣我們應該可以看到畫面變成
-<img src='../img/tutorial2_2.png' height='246px' align='left'>
+<img src='../img/tutorial2_2.png' height='246px'>
+
+## 列表
+葉問曾經說過，我要打10個！  
+貓～我們也要養10個！！  
+
+我們先回到`animals.component.ts`。將原本`animal`變數改為陣列，接著宣告一個`selectedAnimal`變數是`Animal`類別，底下加上一個點選事件`onSelect`。
+
+```js
+import { Component, OnInit } from '@angular/core';
+import { Animal } from '../animal';
+
+@Component({
+  selector: 'app-animals',
+  templateUrl: './animals.component.html',
+  styleUrls: ['./animals.component.css']
+})
+export class AnimalsComponent implements OnInit {
+
+  animals: Animal[] = [
+    {id: 1, name: 'sammy', type: 'cat'},
+    {id: 2, name: '細阿妹', type: 'cat'},
+    {id: 3, name: '肥不點', type: 'cat'},
+    {id: 4, name: '妞妞', type: 'dog'},
+    {id: 5, name: 'money', type: 'dog'},
+  ];
+  selectedAnimal: Animal;
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  onSelect(animal: Animal): void {
+    this.selectedAnimal = animal;
+  }
+}
+```
+
+再來我們將原本`animals.component.html`也稍做修改如下。
+
+```html
+<h2> Animals</h2>
+<ul class="animals">
+  <li *ngFor="let animal of animals"
+      [class.selected]="animal === selectedAnimal"
+      (click)="onSelect(animal)">
+    <span>{{animal.id}}</span> {{animal.name | uppercase}}
+  </li>
+</ul>
+<div *ngIf="selectedAnimal">
+  <h2> {{ selectedAnimal.name | uppercase}}'s Details</h2>
+  <div><span>id: </span>{{selectedAnimal.id}}</div>
+  <div><span>name: </span>{{selectedAnimal.name}}</div>
+  <div><span>type: </span>{{selectedAnimal.type }}</div>
+</div>
+
+```
+- `*ngFor=let animal of animals`:  
+代表宣告這個li元素會由Angular迴圈產生，而內容變數會從`animals`陣列取1並命名成`animal`填入
+- `[class.CSS類別名] = "條件式"`:  
+當資料符合條件式時，會加上設定的CSS類別
+- `(click)="onSelect(animal)`:  
+點擊時會觸發`onSelect`事件，並將該li所綁定的`animal`變數傳入
+- `*ngIf="條件式"`:  
+當條件符合時，該div才會顯示
+
+接著css我們也做一些修改。
+
+所以在這頁會先呈現動物的列表，點選其中一個會觸發點選事件，將值傳入顯示在下方，呈現結果如下。
+<img src='../img/tutorial2_3.png' height='246px'>
+<img src='../img/tutorial2_4.png' height='246px'>
 
 
