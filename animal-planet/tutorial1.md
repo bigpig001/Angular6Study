@@ -66,10 +66,8 @@ h1 {
 }
 ```
 然後回到`http://localhost:4200/`，我們應該可以看到畫面變成
-<<<<<<< Updated upstream
-<img src='../img/tutorial1_1.png' height='246px' align='left' >
-=======
-<img src='../img/tutorial1_1.png' height='246px' align='left'>
->>>>>>> Stashed changes
+
+<img src='../img/tutorial1_1.png' height='246px'  >
+
 
 
