@@ -189,4 +189,12 @@ export class AnimalsComponent implements OnInit {
 <img src='../img/tutorial2_3.png' height='246px'>
 <img src='../img/tutorial2_4.png' height='246px'>
 
+# 總結
+在這次練習我們會知道如何
+- 使用CLI建立第二個Component
+- 將第二個Component附加在第一個Component內容上
+- 利用類別的方式在Comoent上呈現單筆或多筆資料
+- Angular CSS風格的切換的方式
+- Angular 點擊事件
+- 主/從表單的呈現
 
