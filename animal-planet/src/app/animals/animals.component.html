@@ -6,9 +6,4 @@
     <span >{{animal.id}}</span> {{animal.name | uppercase}}
   </li>
 </ul>
-<div *ngIf="selectedAnimal">
-  <h2> {{ selectedAnimal.name | uppercase}}'s Details</h2>
-  <div><span>id: </span>{{selectedAnimal.id}}</div>
-  <div><span>name: </span>{{selectedAnimal.name}}</div>
-  <div><span>type: </span>{{selectedAnimal.type }}</div>
-</div>
+<app-animal-detail [animal]="selectedAnimal"></app-animal-detail>
